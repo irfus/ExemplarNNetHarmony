@@ -1,0 +1,99 @@
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t H:2
+#+TITLE: Exemplar-Modelling Vowel Harmony with Recurrent Neural Networks
+#+DATE: Fall 2018
+#+AUTHOR: Irfan S
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+latex_header: \usefonttheme{professionalfonts}
+#+latex_header: \usepackage{fontspec}
+#+BEAMER_THEME: Berkeley
+#+BEAMER_FRAME_LEVEL: 2
+
+\maketitle
+* Introduction
+
+** What is vowel harmony?
+- Vowel harmony (VH) is a long-distance assimilatory phonological process
+- long-distance: involves non-contiguous vowels in fixed morphological/prosodic domains
+** Approaches to Vowel Harmony
+- traditional: understood in terms of feature-spreading or sharing citep:anderson1980
+- coarticulatory approach, citep:ohala1994towards
+  - "fossilised result of purely phonetic between-vowel assimilations"
+  - diachronic sound change arising out of listeners' mis-perceiving sounds due to coarticulatory perturbation
+** An exemplar modelling approach?
+- cite:cole2009emergent suggests an exemplar-approach that models transitional probabilities between vowels co-occuring within words
+  - harmonic classes would arise as emergent structure
+  - recurrent neural networks are suggested as a possible implementation of this approach
+
+** VH in Finnish and Bangla
+- Finnish: backness harmony, proceeds left-to-right
+  - front or back vowel in the initial syllable spreads that feature to vowels in non-initial syllables
+  - three harmonic classes - front [ä ö y]; back [a o u]; neutral [e i]\footnote{neutral vowels are unchanged by harmony}
+  - e.g., pos+ahta+(t)a → posahtaa  (back)
+  - räj+ahta+(t)a → räjähtää (front)
+- Bangla: ATR harmony, proceeds right-to-left
+  - ATR feature of suffixal vowels spreads to stem vowels
+  - e.g., pɔtr+ika → potrika
+  - khɛl+i → kheli
+
+* Data and Models
+
+** Dataset(s)
+- Aalto University DSP Course Conversation Corpus
+  - transcribed, force-aligned recordings of Finnish conversations
+  - 5200 utterances, 9.7hrs of audio from 218 male and 24 female speakers
+  - http://urn.fi/urn:nbn:fi:lb-2017092133
+- SHRUTI Continuous ASR Speech Corpus
+  - 7383 sentences spoken by 35 native speakers of Bengali
+  - force-aligned phoneme and word-level annotations
+- Both corpora publicly available, no IRB clearance required (yay!)
+
+** Data
+- sequences of acoustic features (MFCCs) extracted from word-level segments
+- potentially, word segments extracted from the corpus could also be sorted and separated by number of syllables (how is this useful?)
+
+** Model
+- uni- or bi-directional recurrent neural networks
+- model architecture similar to as described in cite:alishahi2017encoding (recurrent highway network with attention)
+  - this would be advantageous in that we can use their findings to inform our understanding of what phonological representations different layers of the model are likely to learn
+  - potential pitfall: this model relies on visual features to ground learning, which these datasets lack
+  - substitute with word-vectors or augment corpora with images corresponding to lexical meaning (?)
+
+* Experiment
+
+** Experiment 1
+- following the methodology described by cite:alishahi2017encoding, the following experiment is proposed
+- from all possible CV combinations from our corpora, we construct tuples of the form (A,B,X) where
+  - A, B, and X are syllables
+  - B and X contain vowels drawn from the same harmonic class, while A is from another class or neutral
+  - for each tuple, we calculate \(sign(dist(A,X) - dist(B,X))\), where \(dist(i,j)\) is euclidean distance between vector representations of syllables /i/ and /j/ output by our model
+  - a positive value will indicate that representations of vowels sharing harmonic class are closer
+- prediction: the performance of the model's output vectors should surpass baseline acoustic features at this task if the model has learnt phonological representations corresponding to harmonic features
+
+** Relevance
+- the proposed experiment aims to verify the prediction made by cite:cole2009emergent
+- if successful, an exemplar-theoretic approach employing neural networks is validated as a viable alternative to formal phonological models based on phonemic features
+- neural network models such as proposed here are capable of learning to represent data in multiple modalities
+- a fully exemplar-theoretic approach, such as advocated by cite:port2007how, proposes that a rich variety of non-linguistic and linguistic formation is exploited by language learners and users in the processes of production and perception. statistical neural networks seem well-suited to modelling this kind of rich variety of inputs
+
+* Timeline
+** Timeline
+- Comprehensive literature review (mid-September)
+- Data preparation for training and analysis (October, 1st week)
+- Write model code, train models (October-end)
+- Run experimental analysis (November)
+- Write things up (November-...)
+
+* 
+** References
+  :PROPERTIES:
+  :BEAMER_OPT: fragile,allowframebreaks,label=
+  :END:  
+bibliography:draft.bib
+bibliographystyle:apalike
+

@@ -1,0 +1,11 @@
+* Presentations Round 1 
+** Chase, Automatic Biomedical Semantic Relation Discovery
+*** Data
+Biomedical literature, hand-annotated (xml) for noun classes
+- data contains text, and corresponding annotations of Nes appearing in
+*** Task
+Figuring out the relation between the NES in a text, automatically from the text
+- using a vector-space model 
+- learning algorithm?
+** Chelsey, Futurate Present Tense (comp. semantics)
+- sentences like "X flies to Y tomorrow."
