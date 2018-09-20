@@ -1,6 +1,6 @@
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
 #+OPTIONS: timestamp:t title:t toc:nil todo:t |:t H:2
-#+TITLE: Exemplar-Modelling Vowel Harmony with Recurrent Neural Networks
+#+TITLE: Exemplar-Modelling Vowel Harmony with Recurrent Neural Networks: Literature Review
 #+DATE: Fall 2018
 #+AUTHOR: Irfan S
 #+LANGUAGE: en
@@ -19,23 +19,38 @@
 
 ** Outline
 - Exemplar approach to vowel harmony
-- Connectionist Models of Harmony
-- Where does this experiment fit in?
+- Connectionist Models
+  - Where does this experiment fit in?
 
 * Exemplar Approach to Vowel Harmony
 
-** Coarticulation and VH
+** VH as an evolutionary process
 
 - vowel harmony is the result of a diachronic process of sound change motivated by perturbatory effects of coarticulation on listener perception citep:ohala1994towards,blevins2004evolutionary
-- an old claim: phonetic basis for VH irrelevant from a synchronic point of view citep:anderson1980,nevins2010locality
-- but evidence suggests it is possible to extract phonological patterns corresponding to VH from coarticulatory patterns citep:przezdziecki2005vowel
+- evidence suggests it is possible to extract phonological patterns corresponding to VH from coarticulatory patterns citep:przezdziecki2005vowel
+  - counter-claim: phonetic basis for VH irrelevant from a synchronic point of view citep:anderson1980,nevins2010locality
 - motivates search for models that integrate phonetic features and phonological structures
+
 ** Motivating the exemplar approach
 
-- mental lexicon integrates detailed representations of acoustic/auditory, articulatory, visual, spatial, and even social inputs citep:port2007how,johnson2007decisions,coleman2002phonetic,wedel2006exemplar,johnson2006resonance
-- phonological patterns are implicitly learned through repeated exposure to sequences of such inputs and 'words' are a natural organisational unit for this process 
-- 
-** Requirements of an exemplar approach
+- mental lexicon integrates detailed representations of acoustic/auditory, articulatory, visual, spatial, and even social inputs
+- phonological patterns are implicitly learnt through repeated exposure to sequences of such inputs and 'words' are a natural organisational unit for this process (lexically driven learning)
+- exemplar models have been argued to be particularly suited to modelling language change as an evolutionary process
+- cite:wedel2006exemplar,port2007how,johnson2007decisions,coleman2002phonetic,johnson2006resonance
+
+* Connectionist models (aka Neural Networks)
+
+** Connectionist accounts in linguistics
+- linked to psycholinguistically motivated accounts of production/perception, and processing citep:dell1999connection,hawkins2001polysp,port1990representation
+- proposed and/or shown to be compatible with emergent/exemplar accounts of phonological acquisition citep:bybee2005alternativ,lathroum1989feature,hare1990role,rodd1997recurrent,cole2009emergent,alderete2018connectionist,cole2009emergent
+- but, actual early implementations were often limited in scope by constraints on computational processing and storage
+** Where does this experiment come in?
+- it is now possible to train such models to learn semantic representations directly from raw phonetic or text inputs with no annotation at the phonological or syntactic level
+- resurgence of interest in testing if and how the representations learnt by such "end-to-end" models maps to traditional linguistic structures citep:alishahi2017encoding,doucette2017inherent,gulordava2018colorless,ravfogel2018can,van2018modeling,enguehard2017exploring,linzen2016assessing
+
+** Where does this experiment come in?
+proposed aim: replicate methodology from cite:alishahi2017encoding to test the representation of VH structures in an RNN model trained in an exemplar-compatible way \footnote{project repo: https://github.com/irfus/ExemplarNNetHarmony}
+
 ** References
   :PROPERTIES:
   :BEAMER_OPT: fragile,allowframebreaks,label=
@@ -47,5 +62,7 @@ bibliographystyle:apalike
 * Notes                                                            :noexport:
 
 ** Goals
+(╯°□°）╯︵ ┻━┻
 
-*** Learnability theory
+** Learnability, UG
+review cite:allen1999emergence,yang2002knowledge,yang2004universal,yang2011computation,goldsmith2012information
