@@ -13,6 +13,7 @@
 #+latex_header: \usepackage{fontspec}
 #+BEAMER_THEME: Berkeley
 #+BEAMER_FRAME_LEVEL: 2
+#+EXPORT_EXCLUDE_TAGS: noexport
 
 \maketitle
 * Introduction
@@ -97,3 +98,9 @@
 bibliography:draft.bib
 bibliographystyle:apalike
 
+
+* Notes                                                            :noexport:
+
+** Goals
+
+*** Learnability theory

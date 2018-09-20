@@ -1,0 +1,51 @@
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t H:2
+#+TITLE: Exemplar-Modelling Vowel Harmony with Recurrent Neural Networks
+#+DATE: Fall 2018
+#+AUTHOR: Irfan S
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation]
+#+latex_header: \usefonttheme{professionalfonts}
+#+latex_header: \usepackage{fontspec}
+#+BEAMER_THEME: metropolis
+#+BEAMER_FRAME_LEVEL: 2
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+\maketitle
+
+** Outline
+- Exemplar approach to vowel harmony
+- Connectionist Models of Harmony
+- Where does this experiment fit in?
+
+* Exemplar Approach to Vowel Harmony
+
+** Coarticulation and VH
+
+- vowel harmony is the result of a diachronic process of sound change motivated by perturbatory effects of coarticulation on listener perception citep:ohala1994towards,blevins2004evolutionary
+- an old claim: phonetic basis for VH irrelevant from a synchronic point of view citep:anderson1980,nevins2010locality
+- but evidence suggests it is possible to extract phonological patterns corresponding to VH from coarticulatory patterns citep:przezdziecki2005vowel
+- motivates search for models that integrate phonetic features and phonological structures
+** Motivating the exemplar approach
+
+- mental lexicon integrates detailed representations of acoustic/auditory, articulatory, visual, spatial, and even social inputs citep:port2007how,johnson2007decisions,coleman2002phonetic,wedel2006exemplar,johnson2006resonance
+- phonological patterns are implicitly learned through repeated exposure to sequences of such inputs and 'words' are a natural organisational unit for this process 
+- 
+** Requirements of an exemplar approach
+** References
+  :PROPERTIES:
+  :BEAMER_OPT: fragile,allowframebreaks,label=
+  :END:  
+bibliography:draft.bib
+bibliographystyle:apalike
+
+
+* Notes                                                            :noexport:
+
+** Goals
+
+*** Learnability theory
