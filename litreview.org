@@ -1,5 +1,5 @@
 #+OPTIONS: author:t broken-links:nil c:nil creator:nil
-#+OPTIONS: timestamp:t title:t toc:nil todo:t |:t H:2
+#+OPTIONS: timestamp:t title:t toc:t todo:t |:t H:2
 #+TITLE: Exemplar-Modelling Vowel Harmony with Recurrent Neural Networks: Literature Review
 #+DATE: Fall 2018
 #+AUTHOR: Irfan S
