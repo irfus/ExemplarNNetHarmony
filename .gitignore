@@ -22,3 +22,6 @@ Interspeech/*.pdf
 *.snm
 *.toc
 *minted*
+*.wav
+*.TextGrid
+*dspcon*
