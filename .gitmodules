@@ -1,0 +1,6 @@
+[submodule "encoding-of-phonology"]
+	path = models/imaginet
+	url = https://github.com/gchrupala/encoding-of-phonology
+[submodule "imaginet"]
+	path = models/imaginet
+	url = https://github.com/gchrupala/encoding-of-phonology
