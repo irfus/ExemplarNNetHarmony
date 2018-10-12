@@ -1,0 +1,112 @@
+#+OPTIONS: author:t broken-links:nil c:nil creator:nil
+#+OPTIONS: timestamp:t title:t toc:t todo:nil |:t H:2 ':t
+#+TITLE: Exemplar-Modelling Vowel Harmony with Recurrent Neural Networks: Literature Review
+#+DATE: Fall 2018
+#+AUTHOR: Irfan S
+#+LANGUAGE: en
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+startup: beamer
+#+LaTeX_CLASS: beamer
+#+LaTeX_CLASS_OPTIONS: [presentation,aspectratio=169]
+#+latex_header: \usepackage{fontspec}
+#+latex_header: \usepackage{lmodern}
+#+BEAMER_THEME: metropolis
+#+BEAMER_FRAME_LEVEL: 2
+#+EXPORT_EXCLUDE_TAGS: noexport
+
+* Exemplar Approach to Vowel Harmony
+
+** VH as an evolutionary process
+
+- vowel harmony is the result of a diachronic process of sound change motivated by *perturbatory effects of coarticulation* on listener perception citep:ohala1994towards,blevins2004evolutionary
+- evidence suggests it is possible to extract phonological rules corresponding to VH from coarticulatory patterns citep:przezdziecki2005vowel
+  - counter-claim: phonetic basis for VH irrelevant from a synchronic point of view citep:anderson1980,nevins2010locality
+- motivates search for models that integrate phonetic features and phonological structures
+
+** Motivating the exemplar approach
+
+- mental lexicon integrates detailed representations of *acoustic/auditory*, articulatory, *visual*, spatial, and even social inputs
+- phonological structures are implicitly learnt through *repeated exposure to /exemplars/* of these inputs
+- exemplar models have been argued to be particularly suited to *modelling language change* as an evolutionary process
+- cite:wedel2006exemplar,port2007how,johnson2007decisions,coleman2002phonetic,johnson2006resonance
+
+* Connectionist models (a.k.a. Neural Networks)
+
+** Connectionist models in linguistics
+- linked to psycholinguistically motivated accounts of production/perception, and processing citep:dell1999connection,hawkins2001polysp,port1990representation
+- proposed to be *compatible with emergent~/~exemplar accounts* of phonological acquisition citep:bybee2005alternativ,lathroum1989feature,hare1990role,rodd1997recurrent,cole2009emergent,alderete2018connectionist,cole2009emergent
+- but, actual early implementations were often limited; toy models, sketches
+
+** Where does this experiment come in?
+- the success of /"deep learning"/ citep:manning2015computation
+- it is now possible to train such models to learn *semantic representations directly* from raw, unannotated phonetic or text inputs
+- resurgence of interest in testing if and how the representations learnt by such /"end-to-end"/ models maps to traditional linguistic structures citep:alishahi2017encoding,doucette2017inherent,gulordava2018colorless,ravfogel2018can,van2018modeling,enguehard2017exploring,linzen2016assessing
+
+** Where does this experiment come in?
+*** proposed aim:
+- replicate methodology from cite:alishahi2017encoding to test the representation of VH structures in an RNN model trained in an *exemplar-compatible way*
+
+*** why recurrent?
+- recurrence allows processing *sequential inputs* (like speech)
+- lets the network learn interactions between different portions of the input
+  - sensitive to coarticulatory effects
+
+*** not in scope:
+- testing the biological plausibility of RNNs (/short answer: they're not/)
+- modelling the actual phonological acquisition process
+
+* Research Questions, Data, and Methods
+** Research Questions
+*** RQ1
+- Can structures corresponding to vowel harmony classes be found through the vector representations learned by a /weakly-supervised/ "deep" RNN
+
+*** RQ2
+- If yes (to RQ1), then what is the hierarchical position of the layer(s) that best learns to represent these structures w.r.t. the rest of the network
+  - Do the results of cite:alishahi2017encoding replicate?
+
+** Dataset
+- Aalto University DSP Course Conversation Corpus
+- Finnish spontaneous conversations with force-aligned transcriptions (utterance, word, segment)
+- 5200 utterances, 9.7hrs of audio from 218 male and 24 female speakers
+- Finnish has backness harmony, proceeding left-to-right
+- http://urn.fi/urn:nbn:fi:lb-2017092133
+
+** Model
+*** Input
+- Mel-frequency cepstral coefficient (MFCC) vectors, utterance level
+*** Layers
+- 1 convolutional, 5 recurrent
+*** Output
+- Embedding layer, trains to project utterance encoding and image encoding to a joint vector space
+** Experiment
+*** ABX discrimination task
+- tuples of the form (A,B,X) where
+  - A, B, and X are CV syllables
+  - B and X vowels share harmonic class
+- for each tuple, calculate \(sign(dist(A,X) - dist(B,X))\), where \(dist(i,j)\) is euclidean *distance between model's vector representations of syllables /i/ and /j/*
+- +ve sign indicates that the model has learned to discriminate the VH classes in A and B
+
+** Feedback
+*** Questions? Comments? Suggestions?
+- project repository at [[https://irfus.in/git/irfan/ExemplarRNNHarmony.git]]
+* References
+** References
+  :PROPERTIES:
+  :BEAMER_OPT: fragile,allowframebreaks,label=
+  :END:  
+bibliography:draft.bib
+bibliographystyle:abbrvnat
+
+* Appendix
+
+** VH in Finnish and Bangla
+- Finnish: backness harmony, proceeds left-to-right
+  - front or back vowel in the initial syllable spreads that feature to vowels in non-initial syllables
+  - three harmonic classes - front [ä ö y]; back [a o u]; neutral [e i]\footnote{neutral vowels are unchanged by harmony}
+  - e.g., pos+ahta+(t)a → posahtaa  (back)
+  - räj+ahta+(t)a → räjähtää (front)
+- Bangla: ATR harmony, proceeds right-to-left
+  - ATR feature of suffixal vowels spreads to stem vowels
+  - e.g., pɔtr+ika → potrika
+  - khɛl+i → kheli
