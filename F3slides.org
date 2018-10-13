@@ -8,7 +8,7 @@
 #+EXCLUDE_TAGS: noexport
 #+startup: beamer
 #+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [presentation,aspectratio=169]
+#+LaTeX_CLASS_OPTIONS: [presentation]
 #+latex_header: \usepackage{fontspec}
 #+latex_header: \usepackage{lmodern}
 #+BEAMER_THEME: metropolis
