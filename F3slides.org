@@ -89,7 +89,7 @@
 
 ** Feedback
 *** Questions? Comments? Suggestions?
-- project repository at [[https://irfus.in/git/irfan/ExemplarRNNHarmony.git]]
+- project repository at [[https://git.irfus.in/irfan/ExemplarRNNHarmony.git]]
 * References
 ** References
   :PROPERTIES:
