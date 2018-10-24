@@ -32,9 +32,17 @@ cite:mailhot2010instance demonstrates LIʙPʜᴏɴ\footnote{the Lazy Instance-ba
 * The proposed model
 I propose that a Long Short Term Memory (LSTM) network of sufficient architecture, a modified kind of recurrent neural network, be used to implement an encoder-decoder model. The encoder would be trained to generate transition probabilities for a sequence of utterance level acoustic features. The decoder will be trained to regenerate those sequences from the probabilities output by the encoder. In tandem, the encoder-decoder would approximate a perception/production model of an individual speaker.
 
+#+BEGIN_SRC python
+# Model class (using Keras)
+#+END_SRC
+
 
 ** Data
 Large corpora of natural speech recordings from multiple speakers of both harmony and non-harmony languages would be required. A large enough corpus would ideally be representative of the language community.
+
+#+BEGIN_SRC python
+# Data streamer class
+#+END_SRC
 
 ** Experiments
 

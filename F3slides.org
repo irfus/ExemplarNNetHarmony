@@ -8,12 +8,14 @@
 #+EXCLUDE_TAGS: noexport
 #+startup: beamer
 #+LaTeX_CLASS: beamer
-#+LaTeX_CLASS_OPTIONS: [presentation]
+#+LaTeX_CLASS_OPTIONS: [presentation, aspectration=169]
 #+latex_header: \usepackage{fontspec}
 #+latex_header: \usepackage{lmodern}
 #+BEAMER_THEME: metropolis
 #+BEAMER_FRAME_LEVEL: 2
 #+EXPORT_EXCLUDE_TAGS: noexport
+#+COLUMNS: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+#+COLUMNS: %20ITEM %13BEAMER_env(Env) %6BEAMER_envargs(Args) %4BEAMER_col(Col) %7BEAMER_extra(Extra)
 
 * Exemplar Approach to Vowel Harmony
 
@@ -39,6 +41,9 @@
 - but, actual early implementations were often limited; toy models, sketches
 
 ** Where does this experiment come in?
+   :PROPERTIES:
+   :BEAMER_OPT: allowframebreaks
+   :END:
 - the success of /"deep learning"/ citep:manning2015computation
 - it is now possible to train such models to learn *semantic representations directly* from raw, unannotated phonetic or text inputs
 - resurgence of interest in testing if and how the representations learnt by such /"end-to-end"/ models maps to traditional linguistic structures citep:alishahi2017encoding,doucette2017inherent,gulordava2018colorless,ravfogel2018can,van2018modeling,enguehard2017exploring,linzen2016assessing
@@ -98,9 +103,11 @@
 bibliography:draft.bib
 bibliographystyle:abbrvnat
 
-* Appendix
 
-** VH in Finnish and Bangla
+** VH in Finnish and Bangla :B_appendix:
+   :PROPERTIES:
+   :BEAMER_env: appendix
+   :END:
 - Finnish: backness harmony, proceeds left-to-right
   - front or back vowel in the initial syllable spreads that feature to vowels in non-initial syllables
   - three harmonic classes - front [ä ö y]; back [a o u]; neutral [e i]\footnote{neutral vowels are unchanged by harmony}
