@@ -4,3 +4,9 @@
 [submodule "imaginet"]
 	path = models/imaginet
 	url = https://github.com/gchrupala/encoding-of-phonology
+[submodule "models/funktional"]
+	path = models/funktional
+	url = https://github.com/gchrupala/funktional.git
+[submodule "models/reimaginet"]
+	path = models/reimaginet
+	url = https://github.com/gchrupala/reimaginet.git
